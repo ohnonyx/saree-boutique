@@ -1,11 +1,12 @@
 import React from 'react';
 import './Header.css'; 
+import logo from '../logo.png'
 
 function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <img src='C:\Users\findn\saree-boutique\public\logo.png'/>
+        <img src={logo} alt="logo"/>
       </div>
       <div className="search-bar element">
         <input type="text" placeholder="Search" />

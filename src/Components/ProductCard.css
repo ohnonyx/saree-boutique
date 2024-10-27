@@ -1,0 +1,13 @@
+.product-card {
+    text-align: center;
+    padding-left: 50px;
+  }
+  
+  .product-card img {
+    width: 150px;
+    height: auto;
+  }
+  
+  .product-card p {
+    margin: 5px 0;
+  }
