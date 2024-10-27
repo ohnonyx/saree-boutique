@@ -1,0 +1,35 @@
+.categories {
+    padding: 20px;
+    text-align: center;
+    background-color: #ffd3db;
+  }
+  
+  .category-items {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .category {
+    position: relative;
+    margin: 0 50px;
+  }
+  
+  .category img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 60%;
+  }
+  
+  .category-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+  }
+  

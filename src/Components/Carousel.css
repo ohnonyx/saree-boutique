@@ -1,0 +1,32 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 350px;
+  padding-bottom: 0%;
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.slide {
+  min-width: 100%; /* Ensure each slide takes up the full width */
+  height: 400px; /* Set the height you need */
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-controls svg {
+  cursor: pointer;
+}
