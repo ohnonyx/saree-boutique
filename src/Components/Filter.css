@@ -1,0 +1,70 @@
+.filter-page {
+    display: flex;
+    font-family: Arial, sans-serif;
+    color: #3d1a1a;
+  }
+  
+  .filter-section {
+    width: 25%;
+    background-color: #d9a780;
+    padding: 20px;
+  }
+
+  
+  .filter-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .filter-options {
+    margin-top: 20px;
+  }
+  
+  .filter-options label {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .price-options label {
+    margin-left: 20px;
+  }
+  
+  .search-section {
+    width: 75%;
+    padding: 20px;
+    background-color: #fbe9d7;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    border: 1px solid #3d1a1a;
+  }
+  
+  .search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: -30px;
+  }
+  
+  .search-bar .search-icon {
+    font-size: 18px;
+  }
+  
+  .product-list {
+    display: flex;
+    gap: 20px;
+  }
+  
+
+  

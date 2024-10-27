@@ -3,6 +3,7 @@ import Header from '../src/Components/Header'
 import Carousel from './Components/Carousel';
 import Categories from './Components/Categories';
 import Footer from './Components/Footer';
+import SearchPage from './SearchPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Carousel/>
       <Categories/>
       <Footer/>
+      <SearchPage/>
     </div>
   );
 }
