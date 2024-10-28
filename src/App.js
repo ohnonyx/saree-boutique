@@ -4,6 +4,7 @@ import Carousel from './Components/Carousel';
 import Categories from './Components/Categories';
 import Footer from './Components/Footer';
 import SearchPage from './SearchPage';
+import Login from './Login';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Carousel/>
       <Categories/>
       <Footer/>
-      <SearchPage/>
+      {/* <SearchPage/> */}
+      <Login/>
     </div>
   );
 }
