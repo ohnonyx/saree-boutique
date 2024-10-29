@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Header.css'; 
 import logo from '../logo.png'
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <header className="header">
       <div className="logo">
@@ -13,8 +15,8 @@ function Header() {
         <button type="submit"><i className="fa fa-search"></i></button>
       </div>
       <div className="category-buttons">
-      <button className="category-btn">Home</button>
-        <button className="category-btn">Sarees</button>
+      <button className="category-btn" onClick={() => navigate('/')}>Home</button>
+        <button className="category-btn" onClick={() => navigate('/search')}>Sarees</button>
         <button className="category-btn">Jewellery</button>
         <button className="category-btn">About Us</button>
       </div>
