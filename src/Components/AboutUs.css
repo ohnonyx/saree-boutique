@@ -1,0 +1,57 @@
+.AboutUs{
+    overflow: hidden;
+    /*white-space: nowrap;*/
+}
+
+#para {
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: 10px;
+    font-family: fantasy;
+    /* animation: slide 5s linear infinite;
+    white-space: nowrap; /* Prevents text from wrapping
+    will-change: transform; /* Optimize for animation */
+}
+
+.AboutUs:hover #para {
+    animation-play-state: paused; /* Pauses the animation on hover */
+}
+
+/* #para{
+    align-items: end;
+    color: palevioletred;
+    text-indent: 50%;
+    animation: slide 5s infinite;
+} */
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.AboutUs {
+    width: 100%;
+    margin-top: 60px;
+}
+
+#saree{
+    width: 30%;
+    height: 40%; 
+    float: "left";
+    font-size: 12px;
+        color: #358ED7;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 300;
+        color: #86939E;
+        line-height: 24px;
+}
