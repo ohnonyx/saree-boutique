@@ -1,0 +1,123 @@
+.mainContainer {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("/public/pinksaree.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex: 1;
+  
+  
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  /* font-weight: bolder; */
+  align-items: center;
+  justify-content: center;
+}
+
+.resultContainer,
+.historyItem {
+  flex-direction: row;
+  display: flex;
+  width: 400px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.historyContainer {
+  flex-direction: column;
+  display: flex;
+  height: 200px;
+  align-items: center;
+  flex-grow: 5;
+  justify-content: flex-start;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 260px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  
+}
+
+.inputContainer > .errorLabel {
+  color: red;
+  font-size: 12px;
+}
+
+.inputBox {
+  height: 40px;
+  width: 400px;
+  font-size: large;
+  border-radius: 8px;
+  border: 1px solid grey;
+  padding-left: 8px;
+  display: block;
+}
+
+.inputButton {
+  background-color: #DA7073; /* Coral color for button */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.inputButton:hover {
+  background-color: #da565a; /* Dark pink color on hover */
+}
+.googleButton {
+  
+      background-color: white; /* Button background color */
+      color: black;
+      padding: 10px;
+      border: black;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 50%; /* Width of the button */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content inside the button */
+      justify-content: center;
+      margin: 0 auto; /* Center the button itself */
+  
+}
+
+.googleButton:hover {
+  background-color: #da565a; /* Dark pink color on hover */
+}
+
+
+
+.form-container {
+  background-color: #F5D6BF; /* Peach color */
+  border-radius: 10px;
+  padding: 40px;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+
+.responseMessage {
+  margin-top: 15px;
+  text-align: center;
+  color: #4caf50; /* Green color for success message */
+}

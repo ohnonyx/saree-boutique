@@ -5,6 +5,7 @@ import Categories from './Components/Categories';
 import Footer from './Components/Footer';
 import SearchPage from './SearchPage';
 import Login from './Login';
+import CartPage from './CartPage';
 
 function App() {
   return (
@@ -14,7 +15,14 @@ function App() {
       <Categories/>
       <Footer/>
       {/* <SearchPage/> */}
+     
+      <Header/>
       <Login/>
+      <Footer/>
+
+      <Header/>
+      <CartPage/>
+      <Footer/>
     </div>
   );
 }
