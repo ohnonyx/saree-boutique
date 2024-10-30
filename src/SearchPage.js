@@ -5,9 +5,9 @@ import Filter from './Components/Filter';
 function SearchPage() {
   return (
     <div className="SearchPage">
-      <Header/>
-      <Filter/>
-      <Footer/>
+      <Header className="header"/>
+      <Filter className="body"/>
+      <Footer className="footer"/>
     </div>
   );
 }

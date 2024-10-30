@@ -7,7 +7,7 @@ function Header() {
   const navigate = useNavigate();
   return (
     <header className="header">
-      <div className="logo">
+      <div className="logo" onClick={() => navigate('/')}>
         <img src={logo} alt="logo"/>
       </div>
       <div className="search-bar element">
