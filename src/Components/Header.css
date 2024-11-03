@@ -71,7 +71,7 @@ img{
 
 .user-login svg,
 .cart svg ,
-button:hover {
+button {
   transition: transform 0.3s ease;
 }
 

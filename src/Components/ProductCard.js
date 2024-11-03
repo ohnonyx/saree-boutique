@@ -1,14 +1,15 @@
+// ProductCard.js
 import React from 'react';
 import './ProductCard.css';
 
-function ProductCard() {
+const ProductCard = ({ saree }) => {
   return (
     <div className="product-card">
-            <img src="https://via.placeholder.com/150" alt="saree" />
-            <p>saree name</p>
-            <p>price</p>
+      <img src={saree.images[0]} alt={`${saree.color} saree`} />
+      <p>{saree.name}</p>
+      <p>₹{saree.price}</p>
     </div>
   );
-}
+};
 
 export default ProductCard;

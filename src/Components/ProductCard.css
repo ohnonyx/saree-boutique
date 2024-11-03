@@ -4,10 +4,11 @@
   }
   
   .product-card img {
-    width: 150px;
+    width: 300px;
     height: auto;
   }
   
   .product-card p {
+    font-size: larger;
     margin: 5px 0;
   }

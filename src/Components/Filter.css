@@ -3,30 +3,9 @@
     display: flex;
     font-family: Arial, sans-serif;
     color: #3d1a1a;
-    min-height: 80vh;
+    /* min-height: 80vh; */
     background-color: #d9a780;
   }
-  
-  /* .filter-section {
-    width: 25%;
-    background-color: #d9a780;
-    padding: 20px;
-  }
-
-  
-  .filter-section h2 {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .filter-options {
-    margin-top: 20px;
-  }
-  
-  .filter-options label {
-    display: block;
-    margin: 10px 0;
-  } */
 
   .filter-section {
     width: 250px;
@@ -93,6 +72,7 @@
   
   .filter-category p {
     margin: 0;
+    font-size: large;
   }
   
   .arrow {
@@ -193,6 +173,30 @@
     border-radius: 4px;
   }
   
+  .filter-content label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+  }
   
+  .filter-content label input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #da7073; /* Customize checkbox color */
+    transform: scale(1.2); /* Increase checkbox size */
+    cursor: pointer;
+  }
+  
+  .filter-content label {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
 
+  }
+  
+  .filter-content label:hover {
+    background-color: #fbe9d7 ;
+  }
   
