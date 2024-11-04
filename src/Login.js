@@ -55,17 +55,20 @@ const Login = (props) => {
             </div>
             <form id="dataForm">
                 <br />
+
                 <div className={'inputContainer'}>
+                    E-mail:
                     <input
                         type="text"
                         value={email}
                         placeholder="Enter your email here"
                         onChange={(ev) => setEmail(ev.target.value)}
-                        className={'inputBox'}
+                        className={'inputBox'} 
                     />
                     <label className="errorLabel">{emailError}</label>
                 </div>
                 <br />
+                Password:
                 <div className={'inputContainer'}>
                     <input
                         type="password"
