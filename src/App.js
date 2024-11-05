@@ -6,6 +6,7 @@ import Footer from './Components/Footer';
 import SearchPage from './SearchPage';
 import Login from './Login';
 import CartPage from './CartPage';
+import Signin from './Signin';
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
 
       <Header/>
       <CartPage/>
+      <Footer/>
+
+      <Header/>
+      <Signin/>
       <Footer/>
     </div>
   );
