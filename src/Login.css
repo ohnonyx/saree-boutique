@@ -54,14 +54,14 @@
   align-items: flex-start;
   justify-content: center;
   
-  
-  
 }
 
 .inputContainer > .errorLabel {
   color: red;
   font-size: 12px;
 }
+
+
 
 .inputBox {
   height: 30px;
@@ -107,6 +107,16 @@
   background-color: #da565a; /* Dark pink color on hover */
 }
 
+
+.signupButton {
+ 
+  border: none;
+  background-color: transparent;
+}
+
+.signupButton:hover {
+  text-decoration: underline;
+}
 
 
 .form-container {

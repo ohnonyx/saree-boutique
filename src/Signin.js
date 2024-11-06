@@ -2,21 +2,31 @@ import React, { useState } from 'react';
 import './Signin.css';
 
 const Signin = (props) => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [number, setNumber] = useState('');
     const [address, setAddress] = useState('');
+    const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const [numberError, setNumberError] = useState('');
     const [addressError, setAddressError] = useState('');
     const [responseMessage, setResponseMessage] = useState('');
 
     const onButtonClick = () => {
         // Reset error messages
+        setNameError('');
         setEmailError('');
         setPasswordError('');
+        setNumberError('');
         setAddressError('');
         setResponseMessage('');
 
+        if ('' === name) {
+            setNameError('Please enter your full name');
+            return;
+        }
 
         // Validate email
         if ('' === email) {
@@ -38,6 +48,21 @@ const Signin = (props) => {
             return;
         }
 
+        if ('' === number) {
+            setNumberError('Please enter a phone number');
+            return;
+        }
+        if (number.length < 10 || number.length>10) {
+            setNumberError('The password must be 10 characters');
+            return;
+        }
+
+        if (!/^[6-9]\d{9}$/.test(number)) {
+            setNumberError('Please enter a valid phone number');
+            return;
+        }
+        
+
         if ('' === address) {
             setAddressError('Please enter an address');
             return;
@@ -47,9 +72,11 @@ const Signin = (props) => {
         setResponseMessage(`Signed in as: ${email}`);
         
         // Reset the form fields
+        setName('');
         setEmail('');
         setPassword('');
         setAddress('');
+        setNumber('');
     }
 
     const ongoogleButtonClick = () => {
@@ -65,6 +92,19 @@ const Signin = (props) => {
             </div>
             <form id="dataForm">
                 <br />
+
+                Full name:
+                <div className={'inputContainer'}>
+                    <input
+                        type="text"
+                        value={name}
+                        placeholder="Enter your full name here"
+                        onChange={(ev) => setName(ev.target.value)}
+                        className={'inputBox'}
+                    />
+                    <label className="errorLabel">{nameError}</label>
+                </div>
+                <br/>
 
                 <div className={'inputContainer'}>
                     E-mail:
@@ -88,6 +128,19 @@ const Signin = (props) => {
                         className={'inputBox'}
                     />
                     <label className="errorLabel">{passwordError}</label>
+                </div>
+                <br/>
+
+                Phone number:
+                <div className={'inputContainer'}>
+                    <input
+                        type= 'tel'
+                        value={number}
+                        placeholder="Enter your phone number here"
+                        onChange={(ev) => setNumber(ev.target.value)}
+                        className={'inputBox'}
+                    />
+                    <label className="errorLabel">{numberError}</label>
                 </div>
                 <br/>
 

@@ -79,6 +79,7 @@ const Login = (props) => {
                     />
                     <label className="errorLabel">{passwordError}</label>
                 </div>
+
                 <br/>
                 <div className={'inputContainer'}>
                     <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
@@ -87,6 +88,12 @@ const Login = (props) => {
                 <div className={'googlecontainer'}>
                     <input className={'googleButton'} type="button" onClick={ongoogleButtonClick} value={'Sign in with Google'} />
                 </div>
+                <br/>
+                <div className={'signupContainer'}>
+                    Don't have an account?   
+                    <input className={'signupButton'} type="button" onClick={onButtonClick} value={'Sign Up'} />
+                </div>
+
                 {responseMessage && <div className="responseMessage">{responseMessage}</div>}
             </form>
         </div>
