@@ -42,10 +42,7 @@ const Login = (props) => {
         setPassword('');
     }
 
-    const ongoogleButtonClick = () => {
-        
-    setResponseMessage(`Logged in through google as: ${email}`);
-    }
+    
 
     return (
         <div className={'mainContainer'}>
@@ -84,10 +81,7 @@ const Login = (props) => {
                 <div className={'inputContainer'}>
                     <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
                 </div>
-                <br />
-                <div className={'googlecontainer'}>
-                    <input className={'googleButton'} type="button" onClick={ongoogleButtonClick} value={'Sign in with Google'} />
-                </div>
+                
                 <br/>
                 <div className={'signupContainer'}>
                     Don't have an account?   

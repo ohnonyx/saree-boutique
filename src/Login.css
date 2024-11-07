@@ -86,26 +86,6 @@
 .inputButton:hover {
   background-color: #da565a; /* Dark pink color on hover */
 }
-.googleButton {
-  
-      background-color: white; /* Button background color */
-      color: black;
-      padding: 10px;
-      border: black;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 50%; /* Width of the button */
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center content inside the button */
-      justify-content: center;
-      margin: 0 auto; /* Center the button itself */
-  
-}
-
-.googleButton:hover {
-  background-color: #da565a; /* Dark pink color on hover */
-}
 
 
 .signupButton {

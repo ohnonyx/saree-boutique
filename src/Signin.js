@@ -79,10 +79,7 @@ const Signin = (props) => {
         setNumber('');
     }
 
-    const ongoogleButtonClick = () => {
-        
-    setResponseMessage(`Signed in through google as: ${email}`);
-    }
+    
 
     return (
         <div className={'mainContainer'}>
@@ -160,10 +157,7 @@ const Signin = (props) => {
                 <div className={'inputContainer'}>
                     <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Sign Up'} />
                 </div>
-                <br />
-                <div className={'googlecontainer'}>
-                    <input className={'googleButton'} type="button" onClick={ongoogleButtonClick} value={'Sign Up with Google'} />
-                </div>
+                
                 {responseMessage && <div className="responseMessage">{responseMessage}</div>}
             </form>
         </div>

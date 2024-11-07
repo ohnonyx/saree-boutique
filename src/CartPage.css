@@ -2,7 +2,7 @@
     display: flex;
     padding: 20px;
     background-color: #F5D6BF;
-    height: 100%;
+    height: 100vh;
     flex: 1;
     
   }
@@ -73,6 +73,7 @@
   .cart-subtotal {
     flex: 1;
     padding: 20px;
+    height: fit-content;
     background-color: #f9f4f0;
     border-radius: 5px;
   }
@@ -100,12 +101,22 @@
     font-size: 16px;
     color: #4f4f4f;
   }
+
+  .item-quantity-display p{
+    align-items: center;
+    vertical-align: middle;
+    position: relative;
+    left: 50%;
+    top: 50%;
+  }
   
   .total {
     font-size: 18px;
     font-weight: bold;
     color: #4f4f4f;
     margin-top: 20px;
+    margin-bottom: 20px;
+    
   }
   
   /* .checkout-button {
@@ -127,6 +138,9 @@
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+    padding: 10px;
+    
+    
 }
 
 .checkout-button:hover {

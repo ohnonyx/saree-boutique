@@ -66,15 +66,16 @@ const CartPage = () => {
               <img src={item.imageUrl} alt={item.name} className="subtotal-image" />
               <div className="subtotal-details">
                 <p>{item.name}</p>
+                <p name="item-quantity-display">X{item.quantity}</p>
                 <p>Rs.{item.price * item.quantity}</p>
               </div>
             </div>
           ))}
           <div className="total">SUBTOTAL: Rs.{subtotal}</div>
           <br/>
-          <div className="checkout-button">
+          
             <input className="checkout-button" type="button" value="Checkout" />
-          </div>
+          
         </div>
       )}
     </div>
