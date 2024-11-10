@@ -1,0 +1,195 @@
+/* .saree1{
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: 8px;
+    padding: 0 4px;
+    border-radius: 50px;
+}
+
+.saree2{
+    height: auto;
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: 8px;
+    padding: 0 4px;
+    border-radius: 10px;
+}
+
+.saree3{
+    height: 100%;
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: 8px;
+    padding: 0 4px;
+    border-radius: 10px;
+}
+
+.saree4{
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: 8px;
+    padding: 0 4px;
+    border-radius: 10px;
+}
+
+.item-page {
+    display: table;
+    padding: 20px;
+    max-width: auto;
+    height: 100%;
+    width: auto;
+    margin: auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    float: left;
+    display: flex;
+    justify-content: space-between; Space between sections 
+    align-items: flex-start; Align all items at the top 
+    height: auto; Full height of the viewport 
+    padding: 20px;
+    justify-items: center;
+    
+}
+
+.image-container {
+    flex: 1;
+    padding-right: 20px;
+    display: inline-block;
+}
+
+.image-container{
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.sub-images-container img {
+    flex-direction: column;
+    width: 70%;
+    border-radius: 6px;
+    height: auto;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.details-container {
+    flex: 2;
+}
+
+.item-name {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+
+.item-price {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #e91e63;
+}
+
+.item-description {
+    font-size: 16px;
+    margin: 20px 0;
+    color: #555;
+}
+
+.sub-images-container{
+    display: inline-flex;
+    gap: 0.5rem;
+    padding-top: 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px; 
+}
+
+.sub-images-container img{
+    display: flex;
+    flex: 0.001;
+    flex-direction: column;
+    width: 5%;
+    height: 5%;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    width: 100%; Images take up full width of their container 
+    object-fit: cover;  Ensure images are cropped and fill space 
+    height: 100px;  Fixed height for each sub-image 
+    cursor: pointer;  Pointer cursor to indicate they are clickable 
+}
+
+.Main-image{
+    
+        display: flex;
+        justify-content: center; 
+       align-items: flex-start; 
+        flex: 1; 
+        max-width: 100%;  
+}
+
+.Main-image img{
+    width: 100%; Main image takes full width of its container
+    max-width: 600px; Maximum width for main image
+    object-fit: cover;
+    align-items: flex-start;
+    border-radius: 10px;
+    width: 60%;
+    height: 80%;
+    object-fit: cover;
+    padding-top: 0%;
+
+}
+
+.details-container{
+    width: 250px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+  
+.quantity-button {
+    background-color: #8F4269;
+    color: #f9f4f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+  
+.quantity {
+    font-size: 16px;
+    width: 30px;
+    text-align: center;
+    background-color: #FFD3DB;
+    padding: 3px;
+}
+
+.add-to-cart-button {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-to-cart-button:hover {
+    background-color: #d81b60;
+}
+
+.productful{
+    background-image: linear-gradient(to bottom, white, pink);
+} */

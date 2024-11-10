@@ -1,0 +1,136 @@
+/* .product-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 900px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+.saree1{
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: 8px;
+    padding: 0 4px;
+    border-radius: 50px;
+    flex-direction: column;
+}
+
+  .thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+  }
+  
+  .thumbnail.active {
+    border: 2px solid #000000;
+  }
+  
+  .main-image-container {
+    flex: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .main-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .product-details {
+    flex: 1;
+  }
+  
+  .product-details h1 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  .rating {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .price-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .discount {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .price {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .mrp {
+    text-decoration: line-through;
+    color: #666;
+  }
+  
+  .offers {
+    margin-top: 0.5rem;
+  }
+  
+  .offer-box {
+    background-color: #f1f1f1;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .options {
+    margin-top: 1rem;
+  }
+  
+  .options label {
+    font-weight: bold;
+    display: block;
+  }
+  
+  .color-options {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .color-box {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .color-box.maroon {
+    background-color: maroon;
+  }
+  
+  .color-box.yellow {
+    background-color: yellow;
+  }
+  
+  .color-box.active {
+    border: 2px solid #007bff;
+  } */
