@@ -1,29 +1,106 @@
-.filter-page {
+/* .filter-page {
     display: flex;
     font-family: Arial, sans-serif;
     color: #3d1a1a;
-  }
-  
-  .filter-section {
-    width: 25%;
-    background-color: #d9a780;
-    padding: 20px;
+    background-color: #f3d1b7;
+    margin-top: 0%;
   }
 
-  
+  .filter-section {
+    width: 250px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f3d1b7;
+    position: sticky;
+    top: 0;
+  }
+   */
+   /* Ensure the container allows scrolling */
+.filter-page {
+  display: flex;
+  font-family: Arial, sans-serif;
+  color: #3d1a1a;
+  background-color: #f3d1b7;
+}
+
+.filter-section {
+  width: 250px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f3d1b7;
+  position: sticky;
+  top: 0;
+  height: fit-content; 
+}
+
   .filter-section h2 {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: bold;
+    margin-bottom: 10px;
+    height: fit-content;
+  }
+  
+  .price-slider {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .price-input {
+    width: 50px;
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #fbe9d7;
+    border-radius: 5px;
+  }
+  
+  .slider {
+    flex: 1;
+    appearance: none;
+    height: 5px;
+    background-color: #fbe9d7;
+    outline: none;
+    border-radius: 5px;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: #da7073;
+    border-radius: 50%;
+    cursor: pointer;
   }
   
   .filter-options {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   
-  .filter-options label {
-    display: block;
-    margin: 10px 0;
+  .filter-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px 0;
+    cursor: pointer;
+    border-bottom: 1px solid #f5d6bf;
   }
+  
+  .filter-category p {
+    margin: 0;
+    font-size: large;
+  }
+  
+  .arrow {
+    font-size: 10px;
+    color: #666;
+  }
+  
+  
   
   .price-options label {
     margin-left: 20px;
@@ -62,9 +139,139 @@
   }
   
   .product-list {
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Adjusts spacing between cards */
+    padding-bottom: 20px;
   }
   
-
+  .product-card {
+    box-sizing: border-box;
+    width: 100%; /* Allows the card to use full grid space */
+    max-width: 400px; /* Ensures each card has a maximum width */
+    padding: 10px;
+    text-align: center;
+    overflow: hidden; /* Prevents any overflow */
+  }
   
+  .product-card img {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .filter-section {
+    padding: 20px;
+    max-width: 300px;
+    margin: auto;
+  }
+  
+  .price-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-right: 5px;
+  }
+  
+  .price-input {
+    width: 70px;
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 42px;
+
+  }
+  
+  .slider {
+    height: 8px; /* Height of the slider track */
+    background-color: #ddd;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  .thumb {
+    height: 10px; /* Larger than track height to overlap */
+    width: 10px;
+    background-color: #da7073;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    top: -3px; /* Adjusts circle to center on track */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .track {
+    background-color: #da7073;
+    height: 8px;
+    border-radius: 4px;
+  }
+  
+  .filter-content label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+  }
+  
+  .filter-content label input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #da7073; /* Customize checkbox color */
+    transform: scale(1.2); /* Increase checkbox size */
+    cursor: pointer;
+  }
+  
+  .filter-content label {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+
+  }
+  
+  .filter-content label:hover {
+    background-color: #fbe9d7 ;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 8px 16px;
+    background-color: #da7073;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  .reset-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .reset-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #da7073;
+    font-weight: bold;
+    padding: 3px;
+    border: none;
+  }

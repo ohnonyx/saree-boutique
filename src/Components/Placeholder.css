@@ -1,0 +1,9 @@
+/* PlaceholderCard.css */
+.placeholder-card {
+    box-sizing: border-box;
+    width: 100%; /* Allows the card to use full grid space */
+    max-width: 400px; /* Ensures each card has a maximum width */
+    padding: 10px;
+    text-align: center;
+    overflow: hidden; /* Prevents any overflow */
+  }

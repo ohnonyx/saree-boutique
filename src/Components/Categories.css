@@ -15,8 +15,8 @@
   }
   
   .category img {
-    width: 250px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
     border-radius: 10px;
     opacity: 60%;
