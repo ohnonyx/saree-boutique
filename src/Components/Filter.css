@@ -270,5 +270,8 @@
     font-size: 16px;
     cursor: pointer;
     background-color: transparent;
+    color: #da7073;
+    font-weight: bold;
+    padding: 3px;
     border: none;
   }

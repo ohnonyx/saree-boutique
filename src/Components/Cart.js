@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Cart.css';
+import './CartPage.css';
 
-const Cart = () => {
+const CartPage = () => {
   // State for quantities
   const [items, setItems] = useState([
     { id: 1, name: 'jewellery name', price: 5000000, quantity: 1, imageUrl: '/jewellery.jpg' },
@@ -66,19 +66,20 @@ const Cart = () => {
               <img src={item.imageUrl} alt={item.name} className="subtotal-image" />
               <div className="subtotal-details">
                 <p>{item.name}</p>
+                <p name="item-quantity-display">X{item.quantity}</p>
                 <p>Rs.{item.price * item.quantity}</p>
               </div>
             </div>
           ))}
           <div className="total">SUBTOTAL: Rs.{subtotal}</div>
           <br/>
-          <div className="checkout-button">
+          
             <input className="checkout-button" type="button" value="Checkout" />
-          </div>
+          
         </div>
       )}
     </div>
   );
 };
 
-export default Cart;
+export default CartPage;
