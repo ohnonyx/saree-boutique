@@ -54,7 +54,7 @@ function Aboutusnew() {
                             <h2>Nithya Anantharaman</h2>
                             <p class="title">Cart and Login Page</p>
                             <p>Again also Topper. Singer and fantasy reader supreme :)</p>
-                            <p>nithyaananth09@gmail.com</p>
+                            <p>nithya.ananth09@gmail.com</p>
                             <p><a href='https://in.linkedin.com/in/nithya-anantharaman-0b2538304'><button class="button">Linked In</button></a></p>
                         </div>
                         </div>
