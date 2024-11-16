@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Signin.css';
 import Header from './Header';
 import Footer from './Footer';
@@ -72,9 +73,23 @@ const Signin = (props) => {
             return;
         }
 
-        // Simulate a successful login
-        setResponseMessage(`Signed in as: ${email}`);
-        navigate("/user");
+        axios.post('http://localhost:5000/api/user', {
+            name,
+            email,
+            password,
+            number,
+            address,
+            cart: [], // Add cart and pastOrders as empty arrays
+            pastOrders: []
+        })
+        .then(response => {
+            setResponseMessage('Signup successful!');
+            navigate('/user'); // Redirect to the user page
+        })
+        .catch(error => {
+            setResponseMessage('Signup failed. Please try again.');
+            console.error('Error signing up:', error);
+        });
         
         // Reset the form fields
         setName('');
