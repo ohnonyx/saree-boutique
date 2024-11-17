@@ -9,6 +9,7 @@ import UserPage from './Components/UserPage';
 import SearchPageJewellery from './SearchPageJewellery';
 import ItemPage from './Components/Itempage';
 import ItemPageSaree from './Components/Itempagesaree';
+import Thankyou from './Components/Thankyou';
 
 export const RoutesforPage = () => {
   return (
@@ -24,6 +25,8 @@ export const RoutesforPage = () => {
         <Route path="/searchJewellery" element={<SearchPageJewellery/>} />
         <Route path="/saree/:id" element={<ItemPageSaree/>} />
         <Route path="/jewel/:id" element={<ItemPage/>} />
+        <Route path="/Thankyou" element={<Thankyou/>} />
+
       </Routes>
     </Router>
   );

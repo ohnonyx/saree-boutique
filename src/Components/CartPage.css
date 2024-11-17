@@ -26,11 +26,12 @@
   margin-bottom: 20px;
   background-color: #f9f4f0;
   padding: 10px;
+  height: 100px;
 }
 
 .item-image {
   width: 80px;
-  height: 80px;
+  height: 100px;
   margin-right: 20px;
   border-radius: 5px;
 }
@@ -49,7 +50,11 @@
   display: flex;
   align-items: center;
   margin-top: 5px;
+  justify-content: flex-start; /* Aligns items to the left */
+  width: 100%; /* Ensure the container is wide enough */
 }
+
+
 
 .quantity-button {
   background-color: #8F4269;

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap'); 
+
 /* footer {
     display: flex;
     justify-content: space-between;
@@ -13,8 +15,9 @@
     padding-left: 5%;
     padding-right: 5%;
     background-color: #da7073;
-    font-family: 'Arial', sans-serif;
+    
     height: 120px;
+    font-family: "Newsreader", serif;
   }
   
   /* .footer-info, .footer-contact {

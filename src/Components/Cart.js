@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './CartPage.css';
 import { UserContext } from './UserContext';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 
 const CartPage = () => {
+  const navigate = useNavigate(); 
+  const location = useLocation();
   const { userId } = useContext(UserContext); // Get userId from context
   const [items, setItems] = useState([]);
   const [error, setError] = useState('');
@@ -67,7 +72,7 @@ const CartPage = () => {
     if (userId) {
       fetchCartItems();
     } else {
-      setError('User ID is missing.');
+      navigate('/Login');
     }
   }, [userId]); // Refetch when userId changes
 
@@ -107,18 +112,22 @@ const CartPage = () => {
         {items.length === 0 ? (
           <p>Your cart is empty</p>
         ) : (
-          items.map((item, index) => (
-            <div key={index} className="cart-item">
-              <img src={item.images[0]} alt={item.name} className="cart-item-image" />
-              <h3>{item.name}</h3>
-              <p>Price: Rs.{item.price}</p>
-              <p>Quantity: {item.quantity}</p>
-              <button onClick={() => incrementQuantity(item._id)}>+</button>
-              <button onClick={() => decrementQuantity(item._id)}>-</button>
+          items.map(item => (
+            <div key={item.id} className="item">
+              <img src={item.images[0]} alt={item.name} className="item-image" />
+              <div className="item-details">
+                <p className="item-name">{item.name}</p>
+                <div className="quantity-control">
+                  <button className="quantity-button" onClick={() => decrementQuantity(item._id)}>-</button>
+                  <span className="quantity">{item.quantity}</span>
+                  <button className="quantity-button" onClick={() => incrementQuantity(item._id)}>+</button>
+                </div>
+              </div>
             </div>
           ))
         )}
       </div>
+
       {items.length > 0 && ( // Only show subtotal if there are items in the cart
         <div className="cart-subtotal">
           <h2>CART SUBTOTAL</h2>
@@ -134,7 +143,7 @@ const CartPage = () => {
           ))}
           <div className="total">SUBTOTAL: Rs.{subtotal}</div>
           <br />
-          <input className="checkout-button" type="button" value="Checkout" />
+          <input className="checkout-button" type="button" value="Checkout" onClick={() => navigate('/Thankyou')} />
         </div>
       )}
     </div>
@@ -142,3 +151,5 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
+ 
