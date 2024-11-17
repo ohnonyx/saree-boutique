@@ -30,6 +30,19 @@ app.get('/api/inventory', async (req, res) => {
 });
 
 
+app.get('/api/user', async (req, res) => {
+  try {
+    const { userId } = req.query; // Get userId from query params
+    const user = await User.findById(userId); // Fetch user by ID
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json(user); // Return user data
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred while fetching user data' });
+  }
+});
+
 
 app.post('/api/user', async (req, res) => {
   try {
@@ -50,33 +63,119 @@ app.post('/api/user', async (req, res) => {
       address,
       cart: cart || [], // Default to empty array if not provided
       pastOrders: pastOrders || [] // Default to empty array if not provided
-    }); 
+    });
 
     await newUser.save();
-    res.status(201).json({ message: 'User registered successfully' });
+    res.status(201).json({ message: 'User registered successfully', userId: newUser._id }); // Send userId back in response
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get('/api/user/cart', async (req, res) => {
+  try {
+    const { userId } = req.query;
+    const user = await User.findById(userId); // Find user by ID
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Populate the cart items with product details from inventory/jewelry collection
+    const cartItems = await Promise.all(user.cart.map(async (item) => {
+      const product = await Inventory.findById(item[0]); // Assuming cart items are from the Inventory collection
+      return {
+        ...product.toObject(), // Convert Mongoose document to plain object
+        quantity: item[1], // Add the quantity to the product data
+      };
+    }));
+
+    res.status(200).json({ cart: cartItems }); // Return the populated cart items
+  } catch (error) {
+    console.error('Error fetching cart:', error);
+    res.status(500).json({ message: 'An error occurred while fetching the cart.' });
+  }
+});
+
+
+app.post('/api/user/cart', async (req, res) => {
+  try {
+    console.log('Incoming request body:', req.body);
+    const { userId, itemId, quantity } = req.body;
+
+    // Validate input
+    if (!userId || !itemId || !quantity) {
+      return res.status(400).json({ message: 'User ID, Item ID, and Quantity are required.' });
+    }
+
+    if (quantity <= 0) {
+      return res.status(400).json({ message: 'Quantity must be greater than zero.' });
+    }
+
+    // Find user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Check if the item already exists in the cart
+    const cartItem = user.cart.find(item => item.itemId.toString() === itemId);
+
+    if (cartItem) {
+      // Update quantity if the item exists
+      cartItem.quantity += quantity;
+    } else {
+      // Add new item to the cart
+      user.cart.push({ itemId, quantity });
+    }
+
+    // Save the updated user document
+    await user.save();
+
+    res.status(200).json({ message: 'Cart updated successfully', cart: user.cart });
+  } catch (error) {
+    console.error('Error updating cart:', error);
+    res.status(500).json({ message: 'An error occurred while updating the cart.', error: error.message });
+  }
+});
+
+
+
+
+app.get('/api/inventory', async (req, res) => {
+  try {
+    const sarees = await Inventory.find();
+    res.json(sarees);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get('/api/Jewellry', async (req, res) => {
+  try {
+    const jewel = await jewellery.find();
+    res.json(jewel);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
 
-
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    // Check if the user exists
     const user = await User.findOne({ email });
+
     if (!user) {
       return res.status(404).json({ message: 'User does not exist' });
     }
 
-    // Check if the password matches (use hashed passwords in production)
     if (user.password !== password) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    res.status(200).json({ success: true, message: 'Login successful' });
+    res.status(200).json({ success: true, userId: user._id, message: 'Login successful' });
   } catch (error) {
     res.status(500).json({ message: 'An error occurred during login' });
   }
@@ -91,22 +190,26 @@ app.get('/api/Jewellry', async (req, res) => {
   }
 });
 
-app.get('/api/cart/:userId', async (req, res) => {
+app.get('/api/inventory/:id', async (req, res) => {
   try {
-    const { userId } = req.params;
-
-    // Find the user and get their cart
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    res.json({ cart: user.cart });
+    const item = await Inventory.findById(req.params.id);
+    if (!item) return res.status(404).json({ message: 'Item not found' });
+    res.json(item);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching cart', error: error.message });
+    res.status(500).json({ message: error.message });
   }
 });
 
+// Get a specific item from Jewellery
+app.get('/api/jewellery/:id', async (req, res) => {
+  try {
+    const item = await jewellery.findById(req.params.id);
+    if (!item) return res.status(404).json({ message: 'Item not found' });
+    res.json(item);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 
 
