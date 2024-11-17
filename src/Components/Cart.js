@@ -44,9 +44,7 @@ const CartPage = () => {
   // Calculate subtotal
   const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0);
 
-  const handleCheckout = () => {
-    navigate('/Thankyou');
-  };
+
   return (
     <div className="cart-container">
       <div className="cart-items">
@@ -85,7 +83,7 @@ const CartPage = () => {
           <div className="total">SUBTOTAL: Rs.{subtotal}</div>
           <br/>
           
-            <input className="checkout-button" type="button" value="Checkout" onClick={handleCheckout} />
+          <input className="checkout-button" type="button" value="Checkout" onClick={() => navigate('/Thankyou')} />
           
         </div>
       )}
