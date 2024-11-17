@@ -72,6 +72,50 @@ app.post('/api/user', async (req, res) => {
   }
 });
 
+app.post('/api/user/cart', async (req, res) => {
+  try {
+    console.log('Incoming request body:', req.body);
+    const { userId, itemId, quantity } = req.body;
+
+    // Validate input
+    if (!userId || !itemId || !quantity) {
+      return res.status(400).json({ message: 'User ID, Item ID, and Quantity are required.' });
+    }
+
+    if (quantity <= 0) {
+      return res.status(400).json({ message: 'Quantity must be greater than zero.' });
+    }
+
+    // Find user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Check if the item already exists in the cart
+    const cartItem = user.cart.find(item => item.itemId.toString() === itemId);
+
+    if (cartItem) {
+      // Update quantity if the item exists
+      cartItem.quantity += quantity;
+    } else {
+      // Add new item to the cart
+      user.cart.push({ itemId, quantity });
+    }
+
+    // Save the updated user document
+    await user.save();
+
+    res.status(200).json({ message: 'Cart updated successfully', cart: user.cart });
+  } catch (error) {
+    console.error('Error updating cart:', error);
+    res.status(500).json({ message: 'An error occurred while updating the cart.', error: error.message });
+  }
+});
+
+
+
 
 app.get('/api/inventory', async (req, res) => {
   try {

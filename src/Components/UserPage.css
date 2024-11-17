@@ -32,7 +32,7 @@
     color: rgb(115, 19, 67);
     text-wrap:wrap;
     font-size: 22px;
-    text-align: center;
+    text-align: left;
 }
 
 .column2User{
@@ -41,6 +41,7 @@
     justify-content: start;
     align-items: start;
     font-size: 22px;
+    text-align: left;
 }
 
 .Image img{
@@ -185,8 +186,6 @@ hr{
     padding: 10px 15px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%;
-    size: 30px;
 }
 
 .Userbuttonspassword:hover {

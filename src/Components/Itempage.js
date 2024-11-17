@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import '../Components/Itempagejewels.css';
 import Footer from './Footer';
+import { UserContext } from './UserContext';
 
 const ItemPage = () => {
     const navigate = useNavigate();
@@ -15,7 +16,8 @@ const ItemPage = () => {
     console.log(location.state);
     const { item, type } = location.state || {};  // Extract the item (saree/jewel) and type from state
 
-    const { jewel } = location.state || {};  // Extract the jewel details from the state
+    const { jewel } = location.state || {};  
+    const { userData } = useContext(UserContext);
     const [mainImage, setMainImage] = useState(jewel.images[0]);
     const [quantity, setQuantity] = useState(1);
     const [message, setMessage] = useState('');
@@ -34,12 +36,41 @@ const ItemPage = () => {
         }
     };
 
-    const handleAddToCart = () => {
-        setMessage(`🪞🪷 ${quantity} ${jewel.name} added to cart! 🪷🪕`);
-        setTimeout(() => {
-            setMessage('');
-        }, 3000);
+    const handleAddToCart = async () => {
+        if (!userData) {
+            setMessage('Please log in first to add items to the cart.');
+            setTimeout(() => setMessage(''), 3000);
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:5000/api/user/cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: userData._id,  // ID of the logged-in user
+                    itemId: jewel._id,      // ID of the selected jewel item
+                    quantity,               // Quantity to add to the cart
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setMessage(`🪞🪷 ${quantity} ${jewel.name} added to cart! 🪷🪕`);
+            } else {
+                setMessage(data.message || 'Failed to update cart.');
+            }
+        } catch (error) {
+            console.error('Error while adding to cart:', error);
+            setMessage('An error occurred while adding to cart.');
+        }
+
+        setTimeout(() => setMessage(''), 3000);
     };
+    
 
     const subtotal = jewel.price * quantity;
 
