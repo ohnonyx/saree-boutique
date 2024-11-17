@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import axios
 import './Login.css';
 import Header from './Header';
 import Footer from './Footer';
+import { CartContext } from '../App';
 
 const Login = () => {
     const navigate = useNavigate();
+    const { setAddToCart } = useContext(CartContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -45,6 +47,7 @@ const Login = () => {
 
             if (response.data.success) {
                 setResponseMessage(`Logged in as: ${email}`);
+                setAddToCart(1);
                 navigate('/user'); // Redirect to the user page
             }
         } catch (error) {

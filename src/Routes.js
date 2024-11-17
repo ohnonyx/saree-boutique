@@ -10,6 +10,7 @@ import SearchPageJewellery from './SearchPageJewellery';
 import ItemPage from './Components/Itempage';
 import ItemPageSaree from './Components/Itempagesaree';
 
+
 export const RoutesforPage = () => {
   return (
     <Router>
@@ -28,3 +29,5 @@ export const RoutesforPage = () => {
     </Router>
   );
 };
+
+

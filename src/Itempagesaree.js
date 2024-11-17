@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import '../Components/Itempageyt.css';
 import Footer from './Footer';
+import { CartContext } from './App';
 
 const ItemPage = () => {
     const navigate = useNavigate();
+
     const handleSareeClick = (saree) => {
         navigate('/itempagesaree', { state: { jewel: saree } });  // Ensure saree is passed here
     };
@@ -15,6 +17,7 @@ const ItemPage = () => {
     console.log(location.state);
     const { item, type } = location.state || {};  // Extract the item (saree/jewel) and type from state
 
+    
     const { saree } = location.state || {};  // Extract the jewel details from the state
     const [mainImage, setMainImage] = useState(saree.images[0]);
     const [quantity, setQuantity] = useState(1);
@@ -34,11 +37,16 @@ const ItemPage = () => {
         }
     };
 
+    const { addToCart } = useContext(CartContext);
     const handleAddToCart = () => {
-        setMessage(`🪞🪷 ${quantity} ${saree.name} added to cart! 🪷🪕`);
-        setTimeout(() => {
-            setMessage('');
-        }, 3000);
+        if (addToCart === 1) {
+            setMessage(`🪞🪷 ${quantity} ${saree.name} added to cart! 🪷🪕`);
+            setTimeout(() => setMessage(''), 3000);
+        } else {
+            setMessage('Please log in or sign up to add items to the cart.');
+            setTimeout(() => setMessage(''), 3000);
+        }
+
     };
 
     const subtotal = saree.price * quantity;

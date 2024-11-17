@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Signin.css';
 import Header from './Header';
 import Footer from './Footer';
+import { CartContext } from '../App';
 
 const Signin = (props) => {
     const navigate = useNavigate();
+    const { setAddToCart } = useContext(CartContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -84,6 +86,7 @@ const Signin = (props) => {
         })
         .then(response => {
             setResponseMessage('Signup successful!');
+            setAddToCart(1);
             navigate('/user'); // Redirect to the user page
         })
         .catch(error => {
