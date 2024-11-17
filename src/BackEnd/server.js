@@ -72,6 +72,32 @@ app.post('/api/user', async (req, res) => {
   }
 });
 
+app.get('/api/user/cart', async (req, res) => {
+  try {
+    const { userId } = req.query;
+    const user = await User.findById(userId); // Find user by ID
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Populate the cart items with product details from inventory/jewelry collection
+    const cartItems = await Promise.all(user.cart.map(async (item) => {
+      const product = await Inventory.findById(item[0]); // Assuming cart items are from the Inventory collection
+      return {
+        ...product.toObject(), // Convert Mongoose document to plain object
+        quantity: item[1], // Add the quantity to the product data
+      };
+    }));
+
+    res.status(200).json({ cart: cartItems }); // Return the populated cart items
+  } catch (error) {
+    console.error('Error fetching cart:', error);
+    res.status(500).json({ message: 'An error occurred while fetching the cart.' });
+  }
+});
+
+
 app.post('/api/user/cart', async (req, res) => {
   try {
     console.log('Incoming request body:', req.body);
@@ -159,6 +185,27 @@ app.get('/api/Jewellry', async (req, res) => {
   try {
     const jewel = await jewellery.find();
     res.json(jewel);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get('/api/inventory/:id', async (req, res) => {
+  try {
+    const item = await Inventory.findById(req.params.id);
+    if (!item) return res.status(404).json({ message: 'Item not found' });
+    res.json(item);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Get a specific item from Jewellery
+app.get('/api/jewellery/:id', async (req, res) => {
+  try {
+    const item = await jewellery.findById(req.params.id);
+    if (!item) return res.status(404).json({ message: 'Item not found' });
+    res.json(item);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
