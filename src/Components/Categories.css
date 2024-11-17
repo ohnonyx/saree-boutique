@@ -7,6 +7,7 @@
   .category-items {
     display: flex;
     justify-content: center;
+    
   }
   
   .category {
@@ -20,6 +21,12 @@
     object-fit: cover;
     border-radius: 10px;
     opacity: 60%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .category img:hover {
+    transform: scale(1.05);
   }
   
   .category-text {
@@ -33,3 +40,9 @@
     pointer-events: none;
   }
   
+  .hot-selling {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px;
+    /* flex-wrap: wrap; */
+  }

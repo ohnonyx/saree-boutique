@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Categories.css';
 import ProductCard from './ProductCard';
+import axios from 'axios';
 
 function Categories() {
   const navigate = useNavigate();
+  const [sarees, setSarees] = useState([]);
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/inventory')
+      .then(response => {
+        setSarees(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching sarees data:", error);
+      });
+  }, []);
   return (
     <div className="categories">
       <h1>CATEGORIES</h1>
@@ -18,8 +29,13 @@ function Categories() {
           <div className="category-text">Jewellery</div>
         </div>
       </div>
+      <br/>
       <h1>HOT SELLING</h1>
-      {/* <ProductCard/> */}
+      <div className='hot-selling'>
+        {sarees.slice(0,3).map((saree, index) => (
+              <ProductCard key={index} saree={saree} />
+            ))}
+      </div>
     </div>
   );
 }

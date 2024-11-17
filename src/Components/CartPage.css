@@ -4,7 +4,7 @@
   background-color: #F5D6BF;
   height: 100vh;
   flex: 1;
-  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .cart-items {
@@ -137,8 +137,10 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%;
+  width: 96.5%;
   padding: 10px;
+  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   
   
 }
