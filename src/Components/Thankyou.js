@@ -13,45 +13,6 @@ const Thankyou = () => {
         navigate('/HomePage'); // Navigate to HomePage
     };
 
-//     return (
-//         <div>
-//             <Header/>
-//             <div>
-//         <div className="mainc">
-
-            
-            
-//             <div id="app">
-//                 <div className="title">
-//                     <div className="title-inner">
-//                         <div className="cafe">
-//                             <div className="cafe-inner">Thank</div>
-//                         </div>
-//                         <div className="mozart">
-//                             <div className="mozart-inner">You</div>
-//                         </div>
-//                     </div>
-//                 </div>
-
-//                 <div className="image">
-//                     <img src={saree} alt="Saree" />
-//                 </div>
-
-                
-//             </div>
-            
-//         </div>
-//         </div>
-//         <Footer/>
-//         </div>
-//     );
-// };
-
-// export default Thankyou;
-
-
-
-
 return (
     <div className="thankyou-container">
       <Header/>
