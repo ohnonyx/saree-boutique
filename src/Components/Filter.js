@@ -4,11 +4,13 @@ import ProductCard from './ProductCard';
 import ReactSlider from 'react-slider';
 import axios from 'axios';
 import PlaceholderCard from './Placeholder';
+import { useNavigate } from 'react-router-dom';
 
 function Filter() {
+  const navigate = useNavigate();
   const [openSection, setOpenSection] = useState([]);
   const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(60000);
+  const [maxValue, setMaxValue] = useState(15000);
   const [sarees, setSarees] = useState([]);
   const [filteredSarees, setFilteredSarees] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,7 +56,7 @@ function Filter() {
 
   const resetFilters = () => {
     setMinValue(0);
-    setMaxValue(60000);
+    setMaxValue(15000);
     setSelectedFabrics([]);
     setSelectedColours([]);
     setSelectedOccasions([]);
@@ -118,7 +120,7 @@ function Filter() {
                 thumbClassName="thumb"
                 trackClassName="track"
                 min={1}
-                max={60000}
+                max={15000}
                 value={[minValue, maxValue]}
                 onChange={handleSliderChange}
                 pearling
@@ -134,7 +136,7 @@ function Filter() {
           </div>
           {openSection.includes('fabric') && (
             <div className="filter-content">
-              {['Cotton', 'Silk', 'Linen'].map(fabric => (
+              {['Cotton', 'Silk', 'Organza', 'Viscose'].map(fabric => (
                 <label key={fabric}>
                   <input type="checkbox" 
                          checked={selectedFabrics.includes(fabric)}
@@ -152,7 +154,7 @@ function Filter() {
           </div>
           {openSection.includes('colour') && (
             <div className="filter-content">
-              {['Red', 'Blue', 'Green', 'Pink', 'Purple', 'Grey'].map(color => (
+              {['Red', 'Brown', 'Black', 'Pink', 'Purple', 'Multicolor'].map(color => (
                 <label key={color}>
                   <input type="checkbox" 
                          checked={selectedColours.includes(color)}
@@ -170,7 +172,7 @@ function Filter() {
           </div>
           {openSection.includes('occasion') && (
             <div className="filter-content">
-              {['Wedding', 'Diwali', 'Casual'].map(occasion => (
+              {['Party', 'Diwali', 'Casual', 'Festive'].map(occasion => (
                 <label key={occasion}>
                   <input type="checkbox" 
                          checked={selectedOccasions.includes(occasion)}
@@ -188,7 +190,7 @@ function Filter() {
           </div>
           {openSection.includes('origin') && (
             <div className="filter-content">
-              {['Rajasthan', 'Contemporary', 'Bengal'].map(origin => (
+              {['Rajasthan', 'Contemporary', 'Bhagalpur', 'Maheshwar'].map(origin => (
                 <label key={origin}>
                   <input type="checkbox" 
                          checked={selectedOrigins.includes(origin)}
@@ -206,7 +208,7 @@ function Filter() {
           </div>
           {openSection.includes('craft') && (
             <div className="filter-content">
-              {['Woven', 'Sanganeri', 'Block Print'].map(craft => (
+              {['Woven', 'Sanganeri', 'Hand Painted', 'Embriodered'].map(craft => (
                 <label key={craft}>
                   <input type="checkbox" 
                          checked={selectedCrafts.includes(craft)}
@@ -225,7 +227,7 @@ function Filter() {
       <div className="search-section">
         <div className="product-list">
           {currentSarees.map((saree, index) => (
-            <ProductCard key={index} saree={saree} />
+            <ProductCard onClick={() => navigate(`/saree/${saree.id}`, { state: { saree }})}  key={index} saree={saree} />
           ))}
           {placeholdersNeeded > 0 && Array(placeholdersNeeded).fill(<PlaceholderCard />)}
         </div>
@@ -240,4 +242,3 @@ function Filter() {
 }
 
 export default Filter;
-

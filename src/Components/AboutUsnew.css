@@ -29,7 +29,7 @@
 }
 .column2{
   width: 55%;
-  font-family: Montserrat;
+  font-family: Lucida Sans, Lucida Sans Regular, Lucida Grande, Lucida Sans Unicode, Geneva, Verdana, sans-serif;
   text-align: justify;
   color: aliceblue;
   /* font-family:Verdana, Geneva, Tahoma, sans-serif; */
@@ -56,7 +56,7 @@
 .Para{
   font-size: 1em;
   padding: 5px;
-  font-family: Courier;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .animatable{

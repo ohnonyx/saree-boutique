@@ -42,8 +42,8 @@
 
 .Main-image img {
     border-radius: 10px;
-    width: 600px;  /* Main image will take full width of the .Main-image container */
-    height: 650px;  /* Let the height adjust based on the aspect ratio */
+    width: 550px;  /* Main image will take full width of the .Main-image container */
+    height: 600px;  /* Let the height adjust based on the aspect ratio */
     object-fit: cover;
     align-self:flex-start;  /* Ensure the image covers the container and keeps the aspect ratio */
 }
@@ -69,7 +69,7 @@
 } */
 
 .details-container {
-    width: 800px;
+    width: 600px;
     height: auto;
     padding: 20px;  /* Reduced padding from 20px to 10px */
     background-color: #f4be95;
