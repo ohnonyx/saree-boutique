@@ -30,6 +30,19 @@ app.get('/api/inventory', async (req, res) => {
 });
 
 
+app.get('/api/user', async (req, res) => {
+  try {
+    const { userId } = req.query; // Get userId from query params
+    const user = await User.findById(userId); // Fetch user by ID
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.status(200).json(user); // Return user data
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred while fetching user data' });
+  }
+});
+
 
 app.post('/api/user', async (req, res) => {
   try {
@@ -59,24 +72,39 @@ app.post('/api/user', async (req, res) => {
   }
 });
 
+app.get('/api/inventory', async (req, res) => {
+  try {
+    const sarees = await Inventory.find();
+    res.json(sarees);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get('/api/Jewellry', async (req, res) => {
+  try {
+    const jewel = await jewellery.find();
+    res.json(jewel);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    // Check if the user exists
     const user = await User.findOne({ email });
+
     if (!user) {
       return res.status(404).json({ message: 'User does not exist' });
     }
 
-    // Check if the password matches (use hashed passwords in production)
     if (user.password !== password) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    res.status(200).json({ success: true, message: 'Login successful' });
+    res.status(200).json({ success: true, userId: user._id, message: 'Login successful' });
   } catch (error) {
     res.status(500).json({ message: 'An error occurred during login' });
   }
