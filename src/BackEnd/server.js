@@ -120,7 +120,42 @@ app.get('/api/Jewellry', async (req, res) => {
   }
 });
 
+app.put('/api/user/update-address', async (req, res) => {
+  try {
+    const { userId, newAddress } = req.body; // Get the userId and new address from the request body
 
+    // Find the user by userId
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Update the address
+    user.address = newAddress;
+    await user.save(); // Save the updated user document
+
+    res.status(200).json({ success: true, message: 'Address updated successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred while updating the address' });
+  }
+});
+
+app.delete('/api/user/delete-account/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    // Find and delete the user by userId
+    const user = await User.findByIdAndDelete(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({ success: true, message: 'User account deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred while deleting the account' });
+  }
+});
 
 // Start the server
 const PORT = process.env.PORT || 5000;

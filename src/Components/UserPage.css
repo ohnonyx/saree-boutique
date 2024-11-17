@@ -32,7 +32,7 @@
     color: rgb(115, 19, 67);
     text-wrap:wrap;
     font-size: 22px;
-    text-align: center;
+    text-align: left;
 }
 
 .column2User{
@@ -41,6 +41,7 @@
     justify-content: start;
     align-items: start;
     font-size: 22px;
+    text-align: left;
 }
 
 .Image img{
@@ -157,7 +158,7 @@ hr{
 }
 
 .Userbuttonsaddress{
-    transition: 1s;
+    transition: 0.5s;
     background-color: #CC3366;
     background-color: transparent;
     text-decoration: underline;
@@ -167,17 +168,17 @@ hr{
     padding: 10px 15px;
     cursor: pointer;
     font-size: 16px;
-    width: 60%;
+    width: 100%;
     opacity: 100%;
 }
 
 .Userbuttonsaddress:hover {
-    background-color: #ffcbd5;
-    transform: scale(1.02);
+    transform: scale(1.22);
+    color: #EB3B75;
 }
 
-.Userbuttonspassword{
-    transition: 1s;
+.UserDelete{
+    transition: 0.5s;
     background-color: #CC3366;
     color: white;
     border: none;
@@ -185,11 +186,30 @@ hr{
     padding: 10px 15px;
     cursor: pointer;
     font-size: 16px;
-    width: 100%;
+    width: 20%;
+    size: 30px;
+    margin: 7px;
+}
+
+.UserDelete:hover {
+    background-color: #EB3B75;
+    transform: scale(1.02);
+}
+
+.UserbuttonsLogout{
+    transition: 0.5s;
+    background-color: #CC3366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 10%;
     size: 30px;
 }
 
-.Userbuttonspassword:hover {
+.UserbuttonsLogout:hover {
     background-color: #EB3B75;
     transform: scale(1.02);
 }
