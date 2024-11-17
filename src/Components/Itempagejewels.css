@@ -1,9 +1,16 @@
 /* Ensure the item-page is properly using flexbox and aligning items correctly */
 .item-page {
     display: flex;
-    align-items: flex-start;  /* Align items to the top */
-    gap: 2px;  /* Space between the sub-images container and main image */
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Space between main image and details container */
     padding: 20px;
+    animation: FadeIn 1s;
+}
+
+@keyframes FadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1; }
 }
 
 .sub-images-container {
@@ -28,30 +35,34 @@
 }
 
 .Main-image {
+    flex: 2; /* Take up proportionally more space */
     display: flex;
-    justify-content:left;  /* Center the main image horizontally within its container */
-    align-items: flex-start;  /* Align the main image to the top */
-    width: 70%;  /* Main image container takes up 80% of the width of the parent */
-    height: 20%;
-    flex-grow: 1;  /* Allow the main image container to take available space */
-    float: left;
-    float: top;
-    padding-left: 2%;
+    justify-content: center; /* Center the image inside the container */
+    align-items: flex-start;
+    padding-left: 0; /* Remove unnecessary padding */
     transition: 0.8s;
 }
 
 .Main-image img {
     border-radius: 10px;
-    width: 450px;  /* Main image will take full width of the .Main-image container */
-    height: 500px;  /* Let the height adjust based on the aspect ratio */
+    width: 600px !important;  /* Main image will take full width of the .Main-image container */
+    height: 600px !important;  /* Let the height adjust based on the aspect ratio */
     object-fit: cover;
     align-self:flex-start;  /* Ensure the image covers the container and keeps the aspect ratio */
 }
 
-.Main-image:hover{
-    transform: scale(1.02);
+/* Adjustments for the Details Container */
+.details-container {
+    flex: 1; /* Take up proportionally less space */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    padding: 20px;
+    background-color: #f4be95;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5%;
+    margin-left: 0; /* Remove unnecessary margin */
+    width: 700px;
 }
-
 
 /* Ensuring the details container is correctly aligned */
 /* .details-container {

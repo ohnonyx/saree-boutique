@@ -4,6 +4,12 @@
     align-items: flex-start;  /* Align items to the top */
     gap: 2px;  /* Space between the sub-images container and main image */
     padding: 20px;
+    animation: FadeIn 1s;
+}
+
+@keyframes FadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1; }
 }
 
 .sub-images-container {
@@ -42,8 +48,8 @@
 
 .Main-image img {
     border-radius: 10px;
-    width: 550px;  /* Main image will take full width of the .Main-image container */
-    height: 600px;  /* Let the height adjust based on the aspect ratio */
+    width: 600px !important;  /* Main image will take full width of the .Main-image container */
+    height: 600px !important;  /* Let the height adjust based on the aspect ratio */
     object-fit: cover;
     align-self:flex-start;  /* Ensure the image covers the container and keeps the aspect ratio */
 }
@@ -146,6 +152,7 @@
     border: 1px solid;
 }
 
+
 .Name-of-saree{
     font-size: xx-large;
     font-weight: bolder;
@@ -178,4 +185,5 @@
 
 .quantity-control{
     align-self: center;
+    justify-content: center;
 }

@@ -21,6 +21,12 @@
   font-family: Arial, sans-serif;
   color: #3d1a1a;
   background-color: #f3d1b7;
+  animation: FadeIn 1.5s;
+}
+
+@keyframes FadeIn {
+  0% { opacity: 0;}
+  100% { opacity: 1; }
 }
 
 .filter-section {

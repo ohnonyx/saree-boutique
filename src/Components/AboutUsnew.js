@@ -53,7 +53,7 @@ function Aboutusnew() {
                         <img className="teampic" src={nithyaA} alt="Nithya A" />
                         <div class="container">
                             <h2>Nithya Anantharaman</h2>
-                            <p class="title">SRN:PES1UG23CS405</p>
+                            <p class="title">SRN: PES1UG23CS405</p>
                             <p>Cart Page and Login and SignUp page and Thank You page. </p>
                             <p>MongoDB collection:Users</p>
                             <p>nithya.ananth09@gmail.com</p>
