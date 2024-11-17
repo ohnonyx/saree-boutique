@@ -63,14 +63,15 @@ app.post('/api/user', async (req, res) => {
       address,
       cart: cart || [], // Default to empty array if not provided
       pastOrders: pastOrders || [] // Default to empty array if not provided
-    }); 
+    });
 
     await newUser.save();
-    res.status(201).json({ message: 'User registered successfully' });
+    res.status(201).json({ message: 'User registered successfully', userId: newUser._id }); // Send userId back in response
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
+
 
 app.get('/api/inventory', async (req, res) => {
   try {
