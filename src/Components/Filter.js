@@ -4,8 +4,10 @@ import ProductCard from './ProductCard';
 import ReactSlider from 'react-slider';
 import axios from 'axios';
 import PlaceholderCard from './Placeholder';
+import { useNavigate } from 'react-router-dom';
 
 function Filter() {
+  const navigate = useNavigate();
   const [openSection, setOpenSection] = useState([]);
   const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(60000);
@@ -225,7 +227,7 @@ function Filter() {
       <div className="search-section">
         <div className="product-list">
           {currentSarees.map((saree, index) => (
-            <ProductCard key={index} saree={saree} />
+            <ProductCard onClick={() => navigate(`/saree/${saree.id}`, { state: { saree }})}  key={index} saree={saree} />
           ))}
           {placeholdersNeeded > 0 && Array(placeholdersNeeded).fill(<PlaceholderCard />)}
         </div>

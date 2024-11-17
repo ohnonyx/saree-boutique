@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Inventory = require('./models/Inventory');
+const jewellery = require('./models/jewellery');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -22,6 +23,15 @@ app.get('/api/inventory', async (req, res) => {
   try {
     const sarees = await Inventory.find();
     res.json(sarees);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.get('/api/Jewellry', async (req, res) => {
+  try {
+    const jewel = await jewellery.find();
+    res.json(jewel);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

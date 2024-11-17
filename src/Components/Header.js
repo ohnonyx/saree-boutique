@@ -16,8 +16,8 @@ function Header() {
       </div>
       <div className="category-buttons">
       <button className="category-btn" onClick={() => navigate('/')}>Home</button>
-        <button className="category-btn" onClick={() => navigate('/search')}>Sarees</button>
-        <button className="category-btn">Jewellery</button>
+        <button className="category-btn" onClick={() => navigate('/searchSaree')}>Sarees</button>
+        <button className="category-btn" onClick={() => navigate('/searchJewellery')}>Jewellery</button>
         <button className="category-btn" onClick = {() => navigate('/aboutus')}>About Us</button>
       </div>
       <div className="cart" onClick={() => navigate('/cart')}>

@@ -39,7 +39,7 @@ function Aboutusnew() {
                         <img className="teampic" src={Nishita} alt="Nishita"/>
                         <div class="container">
                             <h2>Nishita Singh</h2>
-                            <p class="title">Home Page and Search with filter Page </p>
+                            <p class="title">Home Page and Search with Filter Page </p>
                             <p>She is Topper. Part Of embrione, willing to not learn new things. Gaming addict</p>
                             <p>find.nishita@gmail.com</p>
                             <p><a href='https://in.linkedin.com/in/nishita-singh-267a1a214'><button class="button">Linked In</button></a></p>
@@ -54,7 +54,7 @@ function Aboutusnew() {
                             <h2>Nithya Anantharaman</h2>
                             <p class="title">Cart and Login Page</p>
                             <p>Again also Topper. Singer and fantasy reader supreme :)</p>
-                            <p>nithyaananth09@gmail.com</p>
+                            <p>nithya.ananth09@gmail.com</p>
                             <p><a href='https://in.linkedin.com/in/nithya-anantharaman-0b2538304'><button class="button">Linked In</button></a></p>
                         </div>
                         </div>
