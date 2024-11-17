@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import './CartPage.css';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const CartPage = () => {
+  const navigate = useNavigate(); 
+  const location = useLocation();  // Get the location object
+  const { myuser } = location.state || {};
+  const {jewel} = location.state || {};
+  const {sarees} = location.state || {};
+
   // State for quantities
   const [items, setItems] = useState([
     { id: 1, name: 'jewellery name', price: 5000000, quantity: 1, imageUrl: '/jewellery.jpg' },
@@ -36,6 +44,9 @@ const CartPage = () => {
   // Calculate subtotal
   const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0);
 
+  const handleCheckout = () => {
+    navigate('/Thankyou');
+  };
   return (
     <div className="cart-container">
       <div className="cart-items">
@@ -74,7 +85,7 @@ const CartPage = () => {
           <div className="total">SUBTOTAL: Rs.{subtotal}</div>
           <br/>
           
-            <input className="checkout-button" type="button" value="Checkout" />
+            <input className="checkout-button" type="button" value="Checkout" onClick={handleCheckout} />
           
         </div>
       )}

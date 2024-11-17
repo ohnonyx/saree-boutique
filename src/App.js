@@ -1,18 +1,13 @@
-import React, { useState, createContext } from 'react';
 import { RoutesforPage } from './Routes';
+import { UserProvider } from './Components/UserContext'; // Import UserProvider
 import './App.css';
-
-// Create a Context for the cart state
-export const CartContext = createContext();
+// import User from './BackEnd/models/User';
 
 function App() {
-  const [addToCart, setAddToCart] = useState(0); // Initialize addToCart state
-
   return (
-    // Provide the CartContext to the entire app
-    <CartContext.Provider value={{ addToCart, setAddToCart }}>
-      <RoutesforPage />
-    </CartContext.Provider>
+    <UserProvider>
+      <RoutesforPage/>
+    </UserProvider>
   );
 }
 

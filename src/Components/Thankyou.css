@@ -1,0 +1,62 @@
+/* Import custom variable font */
+@font-face {
+    font-family: 'TheFont';
+    src: url("https://garet.typeforward.com/assets/fonts/shared/TFMixVF.woff2") format('woff2');
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'TheFont', sans-serif; /* Use the imported font */
+    background-color: #f4f4f4;
+    height: 100vh;
+  }
+  
+  /* Flex container for the entire page */
+  .thankyou-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    
+  }
+  
+  /* Header and footer styles */
+  
+  
+  .header h1, .footer p {
+    margin: 0;
+  }
+  
+  /* Main content area (breathe-animation) */
+  .breathe-animation {
+    flex: 1; /* Take up remaining space between header and footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5D6BF; /* Black background for animation area */
+    
+    
+  }
+  
+  .breathe-animation span {
+    font-family: 'TheFont';  /* Apply custom font */
+    color: #8F4269;  /* White text color */
+    text-align: center;
+  
+    /* Responsive font size that adjusts dynamically */
+    font-size: clamp(100px, 20px, 50px);
+  
+    /* Apply the breathing animation to the text */
+    animation: letter-breathe 3s ease-in-out infinite;
+  }
+  
+  /* Define keyframes for the breathing animation */
+  @keyframes letter-breathe {
+    from, to {
+      font-variation-settings: 'wght' 100; /* Set the font weight to 100 */
+    }
+  
+    50% {
+      font-variation-settings: 'wght' 900; /* Set the font weight to 900 at the midpoint */
+    }
+  }
+  
