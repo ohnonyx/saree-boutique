@@ -39,8 +39,9 @@ function Aboutusnew() {
                         <img className="teampic" src={Nishita} alt="Nishita"/>
                         <div class="container">
                             <h2>Nishita Singh</h2>
-                            <p class="title">Home Page and Search with Filter Page </p>
-                            <p>She is Topper. Part Of embrione, willing to not learn new things. Gaming addict</p>
+                            <p class="title"> SRN: PES1UG23CS403 </p>
+                            <p>Home Page and Saree Page with Filter Page and BackEnd Routing</p>
+                            <p>MongoDB collection:Inventory</p>
                             <p>find.nishita@gmail.com</p>
                             <p><a href='https://in.linkedin.com/in/nishita-singh-267a1a214'><button class="button">Linked In</button></a></p>
                         </div>
@@ -52,8 +53,9 @@ function Aboutusnew() {
                         <img className="teampic" src={nithyaA} alt="Nithya A" />
                         <div class="container">
                             <h2>Nithya Anantharaman</h2>
-                            <p class="title">Cart and Login Page</p>
-                            <p>Again also Topper. Singer and fantasy reader supreme :)</p>
+                            <p class="title">SRN:PES1UG23CS405</p>
+                            <p>Cart Page and Login and SignUp page and Thank You page. </p>
+                            <p>MongoDB collection:Users</p>
                             <p>nithya.ananth09@gmail.com</p>
                             <p><a href='https://in.linkedin.com/in/nithya-anantharaman-0b2538304'><button class="button">Linked In</button></a></p>
                         </div>
@@ -65,8 +67,9 @@ function Aboutusnew() {
                         <img className="teampic" src={NithyaP} alt="Nithya P"/>
                         <div class="container">
                             <h2>Nithya Prashaanthi. R</h2>
-                            <p class="title">About Us and Item Page</p>
-                            <p>Cute. Young. Dumb. Stupid. could do with some sleep. live life to the fullest :P</p>
+                            <p class="title">SRN: PES1UG23CS406</p>
+                            <p>About Us Page and Item Page and Jewellery Page and User page</p>
+                            <p>MongoDB collection:Jewellery</p>
                             <p>nithyaprashaanthi@gmail.com</p>
                             <p><button class="button">Contact</button></p>
                         </div>

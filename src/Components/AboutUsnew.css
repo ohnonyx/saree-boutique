@@ -62,7 +62,7 @@
 .animatable{
   position: relative;
   clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
-  animation: .75s cubic-bezier(1,-0.01,.12,.8) 1s 1 reveal forwards;
+  animation: .5s cubic-bezier(1,-0.01,.12,.8) 0.5s 1 reveal forwards;
 }
 
 .animatable::after {
@@ -74,7 +74,7 @@
   height: 100%;
   background: #DA7073;
   padding: inherit;
-  animation: .75s cubic-bezier(1,-0.01,.12,.8) 1.75s 1 hideBlack forwards;
+  animation: .5s cubic-bezier(1,-0.01,.12,.8) 1s 1 hideBlack forwards;
 }
 
 @keyframes reveal {

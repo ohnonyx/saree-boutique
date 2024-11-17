@@ -4,7 +4,7 @@
     src: url("https://garet.typeforward.com/assets/fonts/shared/TFMixVF.woff2") format('woff2');
   }
   
-  body {
+  .breathe-animation {
     margin: 0;
     font-family: 'TheFont', sans-serif; /* Use the imported font */
     background-color: #f4f4f4;
