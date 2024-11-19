@@ -10,7 +10,7 @@ function JewelleryFilter() {
   const navigate = useNavigate();
   const [openSection, setOpenSection] = useState([]);
   const [minValue, setMinValue] = useState(0);
-  const [maxValue, setMaxValue] = useState(500000);
+  const [maxValue, setMaxValue] = useState(700000);
   const [jewel, setJewel] = useState([]);
   const [filteredJewel, setFilteredJewel] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,7 +54,7 @@ function JewelleryFilter() {
 
   const resetFilters = () => {
     setMinValue(0);
-    setMaxValue(60000);
+    setMaxValue(700000);
     setSelectedColours([]);
     setSelectedOccasions([]);
     setSelectedOrigins([]);
@@ -117,7 +117,7 @@ function JewelleryFilter() {
                 thumbClassName="thumb"
                 trackClassName="track"
                 min={1}
-                max={60000}
+                max={700000}
                 value={[minValue, maxValue]}
                 onChange={handleSliderChange}
                 pearling

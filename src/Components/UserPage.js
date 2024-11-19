@@ -5,24 +5,27 @@ import Footer from './Footer';
 import './UserPage.css';
 import saree1 from './saree.png'; 
 import user from './User.jpg';
-import axios from 'axios'; // Import Axios for API calls
-import { useNavigate } from 'react-router-dom'; // Import useNavigate to handle redirection
-import Modal from './Modal'; // Import the modal component
+import axios from 'axios'; 
+import { useNavigate } from 'react-router-dom'; 
+import Modal from './Modal'; 
+import Modal2 from './Modal2'; // Import Modal2 for confirmation
 
 const UserPage = () => {
-  const { userData } = useContext(UserContext); // Access userData from context
+  const { userData } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [logoutMessage, setLogoutMessage] = useState(null); // For showing logout message
-  const [newAddress, setNewAddress] = useState(''); // State to store new address
-  const [showAddressInput, setShowAddressInput] = useState(false); // Toggle input visibility
-  const [updateMessage, setUpdateMessage] = useState(''); // To display update message
-  const [showModal, setShowModal] = useState(false); // State to control modal visibility
-  const navigate = useNavigate(); // To handle redirection to home page
+  const [logoutMessage, setLogoutMessage] = useState(null); 
+  const [newAddress, setNewAddress] = useState('');
+  const [showAddressInput, setShowAddressInput] = useState(false);
+  const [updateMessage, setUpdateMessage] = useState('');
+  const [showModal, setShowModal] = useState(false); 
+  const [showConfirmModal, setShowConfirmModal] = useState(false); // For showing confirmation modal
+  const [actionToConfirm, setActionToConfirm] = useState(null); // To track the action (logout or delete)
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (userData) {
-      setLoading(false); // Set loading to false once data is available
+      setLoading(false);
     }
   }, [userData]);
 
@@ -34,48 +37,24 @@ const UserPage = () => {
   };
 
   const handleLogout = () => {
-    const isConfirmed = window.confirm("Are you sure you want to log out?");
-    if (isConfirmed) {
-      // Clear the user data from the context (or wherever you're managing session)
-      setLogoutMessage("Logged out successfully.");
-      navigate('/login');
-      window.location.reload();
-    } else {
-      setLogoutMessage("Logout canceled.");
-    }
-  };
-
-  const handleChangeAddress = () => {
-    setShowAddressInput(true); // Show the address input field
-  };
-
-  const handleSubmitAddressChange = async () => {
-    try {
-      const response = await axios.put('http://localhost:5000/api/user/update-address', {
-        userId: userData._id,  // Ensure userData._id is present and correct
-        newAddress: newAddress  // Ensure newAddress is not empty
-      });
-  
-      if (response.data.success) {
-        setUpdateMessage('Address updated successfully! Login again to see the change.');
-        setShowModal(true); // Show the modal when address update is successful
-        setShowAddressInput(false); // Hide the input field after submission
-        
-      } else {
-        setUpdateMessage('Failed to update address. Please try again.');
-        setShowModal(true); // Show modal in case of failure
-      }
-    } catch (error) {
-      console.error('Error updating address:', error);  // Log the actual error in console
-      setUpdateMessage('An error occurred. Please try again.');
-      setShowModal(true); // Show modal in case of error
-    }
-    
+    setActionToConfirm('logout');
+    setShowConfirmModal(true); // Show the confirmation modal for logout
   };
 
   const handleDeleteAccount = () => {
-    const isConfirmed = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
-    if (isConfirmed) {
+    setActionToConfirm('delete');
+    setShowConfirmModal(true); // Show the confirmation modal for account deletion
+  };
+
+  const handleConfirmAction = () => {
+    if (actionToConfirm === 'logout') {
+      // Perform logout action
+      setLogoutMessage("Logged out successfully.");
+      navigate('/login');
+      window.location.reload();
+      setShowConfirmModal(false);
+    } else if (actionToConfirm === 'delete') {
+      // Perform delete account action
       axios.delete(`http://localhost:5000/api/user/delete-account/${userData._id}`)
         .then((response) => {
           console.log(response.data);
@@ -87,8 +66,37 @@ const UserPage = () => {
           console.error('Error deleting account:', error);
           alert('An error occurred while deleting your account. Please try again.');
         });
-    } else {
-      alert('Account deletion canceled.');
+      setShowConfirmModal(false);
+    }
+  };
+
+  const handleCancelAction = () => {
+    setShowConfirmModal(false); // Close the modal without performing any action
+  };
+
+  const handleChangeAddress = () => {
+    setShowAddressInput(true); 
+  };
+
+  const handleSubmitAddressChange = async () => {
+    try {
+      const response = await axios.put('http://localhost:5000/api/user/update-address', {
+        userId: userData._id,
+        newAddress: newAddress
+      });
+  
+      if (response.data.success) {
+        setUpdateMessage('Address updated successfully! Login again to see the changes!');
+        setShowModal(true);
+        setShowAddressInput(false);
+      } else {
+        setUpdateMessage('Failed to update address. Please try again.');
+        setShowModal(true);
+      }
+    } catch (error) {
+      console.error('Error updating address:', error);
+      setUpdateMessage('An error occurred. Please try again.');
+      setShowModal(true);
     }
   };
 
@@ -139,16 +147,23 @@ const UserPage = () => {
           </table>
         </div>
 
-        {/* Modal for Address Update Result */}
         {showModal && (
           <Modal 
             message={updateMessage} 
-            onClose={() => setShowModal(false)}
-            
+            onClose={() => setShowModal(false)} 
           />
         )}
 
-        {logoutMessage && <div className="logout-message">{logoutMessage}</div>} {/* Display logout message */}
+        {/* Confirmation Modal */}
+        {showConfirmModal && (
+          <Modal2 
+            message={actionToConfirm === 'logout' ? "Are you sure you want to log out?" : "Are you sure you want to delete your account?"}
+            onConfirm={handleConfirmAction}
+            onCancel={handleCancelAction}
+          />
+        )}
+
+        {logoutMessage && <div className="logout-message">{logoutMessage}</div>}
       </div>
       <Footer />
     </div>
